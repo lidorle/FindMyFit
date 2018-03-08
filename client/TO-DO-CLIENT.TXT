@@ -1,2 +1,0 @@
-לטפל בהחזרת שגיאות בlogin ו register
-לטפל בבדיקת token valid 
