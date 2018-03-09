@@ -27,7 +27,7 @@ const coachs = require('./routes/coachs');
 const trainers = require('./routes/trainers');
 const login = require('./routes/login')
 //Middelwares
-app.use(logger('Dev'));
+app.use(logger('Dev1'));
 app.use(bodyParser.json());
 
 //Routes
