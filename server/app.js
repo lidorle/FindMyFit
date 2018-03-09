@@ -29,7 +29,7 @@ const login = require('./routes/login')
 //Middelwares
 app.use(logger('Dev'));
 app.use(bodyParser.json());
-
+console.log('');
 //Routes
 app.use('/users',users);
 app.use('/coachs',coachs);
