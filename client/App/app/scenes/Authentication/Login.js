@@ -72,6 +72,7 @@ const UnauthorizedError= 'Unauthorized'
 
             if(response.status>=200 && response.status <300){
                 console.log("res success is:"+res);
+                this.props.navigation.navigate(accessToken ? 'Home' : 'Login',accessToken);
             }
             else{
                 let errors =res;
@@ -129,7 +130,7 @@ const UnauthorizedError= 'Unauthorized'
                             </Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.register}>
+                        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Register')}} style={styles.register}>
                             <Text>
                                 create acount
                             </Text>
