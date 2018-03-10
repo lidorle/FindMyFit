@@ -4,6 +4,7 @@
  * @flowx
  */
 // debug - http://localhost:8081/debugger-ui/
+//Api_google_maps : AIzaSyAm4pWOwM3RCPTtEKTIkxrEe4qOQdvVu_M'
 
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
@@ -17,6 +18,9 @@ import Login from './scenes/Authentication/Login'
 import Register from './scenes/Authentication/Register'
 import Home from './scenes/Home'
 import Root from './components/Root'
+import Map from './components/Map'
+
+// import Map from './components/Map'
 type Props = {};
 
 const AppNavigator = StackNavigator({
@@ -38,7 +42,7 @@ export default class App extends Component<Props> {
 
   render() {
      
-      return( <AppNavigator/>);
+      return( <Map/>);
 
   }
 }
