@@ -53,7 +53,7 @@ const UnauthorizedError= 'Unauthorized'
         this.setState({error:''})
         try{
             
-            let response = await fetch('http://10.0.3.2:3000/Authentication/signin', {
+            let response = await fetch('http://10.0.2.2:3000/Authentication/signin', {
                 method: 'POST',
                 headers: {
                   Accept: 'application/json',
@@ -72,7 +72,7 @@ const UnauthorizedError= 'Unauthorized'
 
             if(response.status>=200 && response.status <300){
                 console.log("res success is:"+res);
-                this.props.navigation.navigate(accessToken ? 'Home' : 'Login',accessToken);
+                this.props.navigation.navigate(accessToken ? 'Map' : 'Login',accessToken);
             }
             else{
                 let errors =res;

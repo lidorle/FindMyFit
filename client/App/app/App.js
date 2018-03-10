@@ -29,6 +29,7 @@ const AppNavigator = StackNavigator({
   Root:{screen:Root},
   Register:{screen:Register},
   Home:{screen:Home},
+  Map:{screen:Map}
   
 
 },
@@ -42,7 +43,7 @@ export default class App extends Component<Props> {
 
   render() {
      
-      return( <Map/>);
+      return( <AppNavigator/>);
 
   }
 }

@@ -28,7 +28,7 @@ import {styles} from './styles'
         this.setState({error:''})
         try{
             
-            let response = await fetch('http://10.0.3.2:3000/Authentication/signup', {
+            let response = await fetch('http://10.0.2.2:3000/Authentication/signup', {
                 method: 'POST',
                 headers: {
                   Accept: 'application/json',
