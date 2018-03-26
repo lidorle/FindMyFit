@@ -1,14 +1,15 @@
-const Trainee = require('../models/trainee');
+const Trainee = require('../models/trainee')
 const mongoose = require('mongoose');
 const  ObjectId = mongoose.Types.ObjectId;
 
-const obj ={   
-    Name:"String",
-    Address:"String",
-    Age:"String",
-    PhoneNumber:"String",
-    Gender:"String",
-    Limitation:"ds"}
+const obj = {   
+    Name:'String',
+Address:'String',
+Gender:'String',
+Limitation:'String',
+Phone:'String',
+Certificates:'String'
+}
 
 module.exports = {
 
@@ -18,14 +19,17 @@ module.exports = {
         res.status(200).json({trainers}); 
     },
 
-    newTrainee: async (req,res,next)=>{
+    newTrainee: async (req, res, next) => {
+        console.log('new trainee');
+        try {
 
-        try{
-            const newTrainee =  new Trainee(obj);
-        }catch(err){
-            console.log(err)
+            const newTrainee = new Trainee(req.body);
+            const coach = await newTrainee.save();
+
+        } catch (error) {
+            return error;
         }
-        const Trainee = await newTrainee.save();
+
         res.status(201).json(Trainee);
     },
 

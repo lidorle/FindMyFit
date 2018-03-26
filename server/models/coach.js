@@ -3,14 +3,15 @@ const Schema = mongoose.Schema;
 
 
 const coachSchema = new Schema({
+    name:String,
     specialitation:String,
     experience:String,
     certificates:String,
     price:String,
-    user:{
-        type:Schema.Types.ObjectId,
-        ref:'user'
-    }
+    // user:{
+    //     type:Schema.Types.ObjectId,
+    //     ref:'user'
+    // }
 
 });
 

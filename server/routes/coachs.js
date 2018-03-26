@@ -13,4 +13,9 @@ router.route('/:coachId')
     .put(CoachsController.replaceCoach)
     .patch(CoachsController.updateCoach)
     .delete(CoachsController.deleteCoach)
+
+router.route('/searchCoachs')
+    .post(CoachsController.searchCoachs)
+
+    
 module.exports = router;

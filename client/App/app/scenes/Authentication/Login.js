@@ -7,6 +7,8 @@ import {
     AsyncStorage,
     View
   } from 'react-native';
+// import { Container, Header, Content, Form, Item, Input } from 'native-base';
+  
 
 import ViewContainer from '../../components/ViewContainer'
 import {styles} from './styles'
@@ -17,12 +19,15 @@ const UnauthorizedError= 'Unauthorized'
   export default class Login extends Component{
       constructor(props){
           super(props);
-
+          const { navigate } = this.props.navigation;
+          
           this.state={
               email:'',
               password:'',
-              error:''
-
+              error:'',
+              navigate:navigate
+      
+             
           }
 
        
@@ -50,7 +55,9 @@ const UnauthorizedError= 'Unauthorized'
     }
 
     async _LoginPress(){
-        this.setState({error:''})
+        
+        this.setState({error:''});
+
         try{
             
             let response = await fetch('http://10.0.2.2:3000/Authentication/signin', {
@@ -72,7 +79,9 @@ const UnauthorizedError= 'Unauthorized'
 
             if(response.status>=200 && response.status <300){
                 console.log("res success is:"+res);
-                this.props.navigation.navigate(accessToken ? 'Map' : 'Login',accessToken);
+                
+                this.state.navigate('UserType',this.state.navigate)
+                // this.state.navigation.navigate(accessToken ? 'Home' : 'Login',accessToken);
             }
             else{
                 let errors =res;
@@ -98,6 +107,7 @@ const UnauthorizedError= 'Unauthorized'
 
       render(){
           return(
+
 
             <ViewContainer>
                 <View style={styles.loginView}>
@@ -145,4 +155,3 @@ const UnauthorizedError= 'Unauthorized'
           );
       }
   }
-

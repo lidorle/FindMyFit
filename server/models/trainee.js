@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -5,18 +6,13 @@ const Schema = mongoose.Schema;
 const traineeSchema = new Schema({
     Name:String,
     Address:String,
-    Age:String,
-    PhoneNumber:String,
     Gender:String,
-    Limitation:String
+    Phone:String,
+    Certificates:String
+
 
 });
 
-const Trainee = mongoose.model('Trainee',traineeSchema);
+const Trainee = mongoose.model('trainee',traineeSchema);
 
 module.exports = Trainee;
-
-
-
-
-

@@ -7,10 +7,16 @@ import {
   } from 'react-native';
   
 import MapView from 'react-native-maps';
+import { Marker } from 'react-native-maps';
+import Geojson from 'react-native-geojson';
 
+// const geo = require('../asset/points')
+import items from '../asset/points'
   export default class Map extends Component{
-    
+
+
       render(){
+
           return(
           <View style ={styles.container}>
             <MapView style={styles.map}
@@ -20,7 +26,12 @@ import MapView from 'react-native-maps';
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
-          />
+          >
+           
+
+          {<Geojson geojson={items} />}
+          
+          </MapView>
           </View>
           );
       }
@@ -38,3 +49,5 @@ import MapView from 'react-native-maps';
       ...StyleSheet.absoluteFillObject,
     },
   });
+
+

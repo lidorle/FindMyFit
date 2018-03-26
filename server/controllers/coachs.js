@@ -1,6 +1,7 @@
 const Coach = require('../models/coach');
 const mongoose = require('mongoose');
 const  ObjectId = mongoose.Types.ObjectId;
+const QuerysHelper = require('../helpers/searchHelper');
 
 module.exports = {
     
@@ -11,13 +12,17 @@ module.exports = {
     },
 
     newCoach: async (req,res,next)=>{
+     try{
         const newCoach = new Coach(req.body);
         const coach = await newCoach.save();
+     }catch(error){
+         return error;
+     }
         res.status(201).json(coach);
     },
 
     getCoach: async(req,res,next)=>{
-        console.log('in')
+        
         const CoachId = new ObjectId(req.params.CoachId);
         const query = {"_id":CoachId}
     
@@ -45,6 +50,20 @@ module.exports = {
         res.status(200).json({'success':true});
 
 
+    },
+    searchCoachs: async (req, res, next) => {
+        try {
+            let Query = QuerysHelper.QueryGenerator(req.body);
+            Coach.find(Query, function (err, coaches) {
+                if (err) return err;
+                const data =JSON.stringify(coaches);
+                res.status(200).send(data);
+            })
+        } catch (error) {
+            return error;
+        }
+
+   
     },
 
 

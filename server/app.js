@@ -21,7 +21,7 @@ db.on('error',function(err){
     console.log(err);
 });
 
-//Routes
+//import Routes models
 const users = require('./routes/users');
 const coachs = require('./routes/coachs');
 const trainers = require('./routes/trainers');
